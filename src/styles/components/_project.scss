@@ -1,0 +1,34 @@
+@import '../variables/colors';
+@import '../variables/fonts';
+
+.Project {
+  &__logo {
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: $fsize-35;
+    font-family: $primary-font;
+    color: $black;
+    line-height: 0.75;
+    text-align: center;
+    text-transform: none;
+  }
+
+  &__description {
+    font-family: $primary-font;
+    font-size: $fsize-17;
+    color: $nf-white;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-family: $primary-font;
+    font-size: $fsize-25;
+    line-height: 1.125;
+    text-align: center;
+    text-transform: none;
+    margin-top: 50px;
+  }
+}
