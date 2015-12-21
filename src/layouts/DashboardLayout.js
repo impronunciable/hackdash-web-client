@@ -13,7 +13,7 @@ import DashboardHeader from 'components/DashboardHeader'
 // define it with a plain javascript function...
 function CoreLayout ({ children }) {
   return (
-    <div className="container">
+    <div className='container'>
       <DashboardHeader />
       <div className='view-container'>
         {children}

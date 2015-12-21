@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PropTypes, Component } from 'react'
 import { Link } from 'react-router'
 import styles from 'styles/components/_dashboard-header.scss'
 
@@ -6,16 +6,21 @@ import styles from 'styles/components/_dashboard-header.scss'
 const ActiveStyle = styles['DashboardHeader__active']
 
 export default class DashboardNavbar extends Component {
-	render() {
-		const { user, dashboard } = this.props
-		return (
-			<ul className="nav navbar-nav navbar-right">
-				<li><Link to={`/dashboards/${dashboard}`} activeClassName={ActiveStyle}>Dashboard</Link></li>
-				<li><Link to={`/dashboards/${dashboard}/about`} activeClassName={ActiveStyle}>About</Link></li>
-				{ user ? <li><Link to="/users/{user.id}" activeClassName={ActiveStyle}>My Account</Link></li> : null }
-				{ !user ? <li><Link to="/login" activeClassName={ActiveStyle}>Login</Link></li> : null }
-				{ !user ? <li><Link to="/signup" activeClassName={ActiveStyle}>Sign Up</Link></li> : null }
-			</ul>
-		)
-	}
+  static propTypes = {
+    user: PropTypes.object,
+    dashboard: PropTypes.object
+  }
+
+  render () {
+    const { user, dashboard } = this.props
+    return (
+      <ul className='nav navbar-nav navbar-right'>
+        <li><Link to={`/dashboards/${dashboard}`} activeClassName={ActiveStyle}>Dashboard</Link></li>
+        <li><Link to={`/dashboards/${dashboard}/about`} activeClassName={ActiveStyle}>About</Link></li>
+        { user ? <li><Link to='/users/{user.id}' activeClassName={ActiveStyle}>My Account</Link></li> : null }
+        { !user ? <li><Link to='/login' activeClassName={ActiveStyle}>Login</Link></li> : null }
+        { !user ? <li><Link to='/signup' activeClassName={ActiveStyle}>Sign Up</Link></li> : null }
+      </ul>
+    )
+  }
 }
