@@ -24,10 +24,6 @@ export class HomeView extends React.Component {
       <div className='container text-center'>
         <h1>HackDash</h1>
         <hr />
-        <ul>
-          <li><Link to='/dashboards/1'>Dashboard View</Link></li>
-          <li><Link to='/dashboards/1/projects/1'>Project View</Link></li>
-        </ul>
       </div>
     )
   }

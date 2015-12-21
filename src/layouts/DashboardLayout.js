@@ -1,5 +1,6 @@
 import React from 'react'
 import 'styles/core.scss'
+import DashboardHeader from 'components/DashboardHeader'
 
 // Note: Stateless/function components *will not* hot reload!
 // react-transform *only* works on component classes.
@@ -13,6 +14,7 @@ import 'styles/core.scss'
 function CoreLayout ({ children }) {
   return (
     <div className="container">
+      <DashboardHeader />
       <div className='view-container'>
         {children}
       </div>
