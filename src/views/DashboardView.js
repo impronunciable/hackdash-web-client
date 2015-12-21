@@ -1,20 +1,15 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { actions as counterActions } from '../redux/modules/counter'
+import { actions as userActions } from '../redux/modules/user'
 
-// We define mapStateToProps where we'd normally use
-// the @connect decorator so the data requirements are clear upfront, but then
-// export the decorated component after the main class definition so
-// the component can be tested w/ and w/o being connected.
-// See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
 const mapStateToProps = (state) => ({
-  counter: state.counter
+  user: state.user,
+  dashboard: state.dashboard
 })
-export class HomeView extends React.Component {
+export class DashboardView extends Component {
   static propTypes = {
-    counter: React.PropTypes.number.isRequired,
-    doubleAsync: React.PropTypes.func.isRequired,
-    increment: React.PropTypes.func.isRequired
+    user: PropTypes.object,
+    dashboard: PropTypes.object
   }
 
   render () {
@@ -25,6 +20,7 @@ export class HomeView extends React.Component {
       </div>
     )
   }
+
 }
 
-export default connect(mapStateToProps, counterActions)(HomeView)
+export default connect(mapStateToProps, userActions)(DashboardView)

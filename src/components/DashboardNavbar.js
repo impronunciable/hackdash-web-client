@@ -19,7 +19,6 @@ export default class DashboardNavbar extends Component {
         <li><Link to={`/dashboards/${dashboard}/about`} activeClassName={ActiveStyle}>About</Link></li>
         { user ? <li><Link to='/users/{user.id}' activeClassName={ActiveStyle}>My Account</Link></li> : null }
         { !user ? <li><Link to='/login' activeClassName={ActiveStyle}>Login</Link></li> : null }
-        { !user ? <li><Link to='/signup' activeClassName={ActiveStyle}>Sign Up</Link></li> : null }
       </ul>
     )
   }

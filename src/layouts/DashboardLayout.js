@@ -11,7 +11,7 @@ import DashboardHeader from 'components/DashboardHeader'
 //
 // CoreLayout is a pure function of it's props, so we can
 // define it with a plain javascript function...
-function CoreLayout ({ children }) {
+function DashboardLayout ({ children }) {
   return (
     <div className='container'>
       <DashboardHeader />
@@ -22,8 +22,8 @@ function CoreLayout ({ children }) {
   )
 }
 
-CoreLayout.propTypes = {
+DashboardLayout.propTypes = {
   children: React.PropTypes.element
 }
 
-export default CoreLayout
+export default DashboardLayout
