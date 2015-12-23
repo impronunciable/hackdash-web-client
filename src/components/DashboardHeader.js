@@ -1,8 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import DashboardNavbar from 'components/DashboardNavbar'
+import { actions as userActions } from '../redux/modules/user'
+import { auth0_client_id, auth0_domain } from 'config'
 
-export default class DashboardHeader extends Component {
+const mapStateToProps = (state) => ({
+  user: state.user,
+  dashboard: state.dashboard
+})
+
+class DashboardHeader extends Component {
+  static propTypes = {
+    login: PropTypes.func.isRequired
+  }
+
   render () {
     return (
       <nav className='navbar navbar-default'>
@@ -10,9 +22,16 @@ export default class DashboardHeader extends Component {
           <div className='navbar-header'>
             <Link className='navbar-brand' to='/'>HackDash</Link>
           </div>
-          <DashboardNavbar />
+          <DashboardNavbar onLoginClick={this.onLoginClick.bind(this)} />
         </div>
       </nav>
     )
   }
+
+  onLoginClick () {
+    const { login } = this.props
+    login(auth0_client_id, auth0_domain)
+  }
 }
+
+export default connect(mapStateToProps, userActions)(DashboardHeader)

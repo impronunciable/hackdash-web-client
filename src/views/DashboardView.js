@@ -6,7 +6,8 @@ const mapStateToProps = (state) => ({
   user: state.user,
   dashboard: state.dashboard
 })
-export class DashboardView extends Component {
+
+class DashboardView extends Component {
   static propTypes = {
     user: PropTypes.object,
     dashboard: PropTypes.object
