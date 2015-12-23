@@ -12,17 +12,21 @@ const mapStateToProps = (state) => ({
 
 class DashboardHeader extends Component {
   static propTypes = {
-    login: PropTypes.func.isRequired
+    login: PropTypes.func.isRequired,
+    user: PropTypes.object
   }
 
   render () {
+    const { user } = this.props
     return (
       <nav className='navbar navbar-default'>
         <div className='container-fluid'>
           <div className='navbar-header'>
             <Link className='navbar-brand' to='/'>HackDash</Link>
           </div>
-          <DashboardNavbar onLoginClick={this.onLoginClick.bind(this)} />
+          <DashboardNavbar
+            user={user}
+            onLoginClick={this.onLoginClick.bind(this)} />
         </div>
       </nav>
     )
