@@ -1,30 +1,50 @@
 import { createAction, handleActions } from 'redux-actions'
+import { auth0_client_id, auth0_domain } from 'config'
+
+// ------------------------------------
+// Auth0-Lock initializer
+// ------------------------------------
+const lock = new Auth0LockPasswordless(auth0_client_id, auth0_domain)
 
 // ------------------------------------
 // Constants
 // ------------------------------------
 export const REQUEST_LOGIN = 'REQUEST_LOGIN'
 export const RECEIVE_LOGIN = 'RECEIVE_LOGIN'
+export const REQUEST_PROFILE = 'REQUEST_PROFILE'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
 const requestLogin = createAction(REQUEST_LOGIN)
 const receiveLogin = createAction(RECEIVE_LOGIN, (error, { email, picture }, idToken) => ({ error, email, picture, idToken }))
+const requestProfile = createAction(REQUEST_PROFILE)
 
-function login (clientId, domain) {
+function login () {
   return dispatch => {
     dispatch(requestLogin())
-    const lock = new Auth0LockPasswordless(clientId, domain)
     lock.emailcode((error, profile, idToken) => {
       dispatch(receiveLogin(error, profile, idToken))
       lock.close()
+      try {
+        localStorage.setItem('userToken', idToken)
+      } catch (e) {}
+    })
+  }
+}
+
+function fetchProfile (idToken) {
+  return dispatch => {
+    dispatch(requestProfile())
+    lock.getProfile(idToken, (error, profile) => {
+      dispatch(receiveLogin(error, profile, idToken))
     })
   }
 }
 
 export const actions = {
-  login
+  login,
+  fetchProfile
 }
 
 // ------------------------------------

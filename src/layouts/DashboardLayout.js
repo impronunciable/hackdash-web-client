@@ -2,19 +2,10 @@ import React from 'react'
 import 'styles/core.scss'
 import DashboardHeader from 'components/DashboardHeader'
 
-// Note: Stateless/function components *will not* hot reload!
-// react-transform *only* works on component classes.
-//
-// Since layouts rarely change, they are a good place to
-// leverage React's new Statelesss Functions:
-// https://facebook.github.io/react/docs/reusable-components.html#stateless-functions
-//
-// CoreLayout is a pure function of it's props, so we can
-// define it with a plain javascript function...
-function DashboardLayout ({ children }) {
+function DashboardLayout ({ children, params }) {
   return (
     <div className='container'>
-      <DashboardHeader />
+      <DashboardHeader dashboard_id={params.dashboard_id} />
       <div className='view-container'>
         {children}
       </div>
@@ -23,7 +14,8 @@ function DashboardLayout ({ children }) {
 }
 
 DashboardLayout.propTypes = {
-  children: React.PropTypes.element
+  children: React.PropTypes.element,
+  params: React.PropTypes.object
 }
 
 export default DashboardLayout

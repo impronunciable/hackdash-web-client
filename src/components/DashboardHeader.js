@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import DashboardNavbar from 'components/DashboardNavbar'
 import { actions as userActions } from '../redux/modules/user'
-import { auth0_client_id, auth0_domain } from 'config'
 
 const mapStateToProps = (state) => ({
   user: state.user,
@@ -13,11 +12,13 @@ const mapStateToProps = (state) => ({
 class DashboardHeader extends Component {
   static propTypes = {
     login: PropTypes.func.isRequired,
-    user: PropTypes.object
+    fetchProfile: PropTypes.func.isRequired,
+    user: PropTypes.object,
+    dashboard_id: PropTypes.string.isRequired
   }
 
   render () {
-    const { user } = this.props
+    const { user, dashboard_id } = this.props
     return (
       <nav className='navbar navbar-default'>
         <div className='container-fluid'>
@@ -26,15 +27,24 @@ class DashboardHeader extends Component {
           </div>
           <DashboardNavbar
             user={user}
+            dashboard_id={dashboard_id}
             onLoginClick={this.onLoginClick.bind(this)} />
         </div>
       </nav>
     )
   }
 
+  componentDidMount () {
+    const { fetchProfile, user } = this.props
+    const idToken = localStorage.getItem('userToken')
+    if (idToken && !user) {
+      fetchProfile(idToken)
+    }
+  }
+
   onLoginClick () {
     const { login } = this.props
-    login(auth0_client_id, auth0_domain)
+    login()
   }
 }
 
