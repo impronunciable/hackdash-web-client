@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { actions as userActions } from '../redux/modules/user'
+import ProjectCard from 'components/ProjectCard'
+import { actions as dashboardActions } from 'redux/modules/dashboard'
 
 const mapStateToProps = (state) => ({
   user: state.user,
@@ -10,18 +11,31 @@ const mapStateToProps = (state) => ({
 class DashboardView extends Component {
   static propTypes = {
     user: PropTypes.object,
-    dashboard: PropTypes.object
+    dashboard: PropTypes.object,
+    params: PropTypes.object.isRequired,
+    fetchDashboard: PropTypes.func.isRequired
   }
 
   render () {
-    return (
-      <div className='container text-center'>
-        <h1>HackDash</h1>
-        <hr />
-      </div>
-    )
+    const { dashboard } = this.props
+
+    if (dashboard) {
+      return (
+        <div className='container text-center'>
+          <h1>{dashboard.title}</h1>
+          <hr />
+          {dashboard.projects.map(project => <ProjectCard project={project} />)}
+        </div>
+      )
+    } else {
+      return (<p>Loading...</p>)
+    }
   }
 
+  componentWillMount () {
+    const { params, fetchDashboard } = this.props
+    fetchDashboard(params.dashboard_slug)
+  }
 }
 
-export default connect(mapStateToProps, userActions)(DashboardView)
+export default connect(mapStateToProps, dashboardActions)(DashboardView)

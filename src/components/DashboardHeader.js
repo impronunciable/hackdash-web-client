@@ -14,11 +14,11 @@ class DashboardHeader extends Component {
     login: PropTypes.func.isRequired,
     fetchProfile: PropTypes.func.isRequired,
     user: PropTypes.object,
-    dashboard_id: PropTypes.string.isRequired
+    dashboard_slug: PropTypes.string.isRequired
   }
 
   render () {
-    const { user, dashboard_id } = this.props
+    const { user, dashboard_slug } = this.props
     return (
       <nav className='navbar navbar-default'>
         <div className='container-fluid'>
@@ -27,14 +27,14 @@ class DashboardHeader extends Component {
           </div>
           <DashboardNavbar
             user={user}
-            dashboard_id={dashboard_id}
+            dashboard_slug={dashboard_slug}
             onLoginClick={this.onLoginClick.bind(this)} />
         </div>
       </nav>
     )
   }
 
-  componentDidMount () {
+  componentWillMount () {
     const { fetchProfile, user } = this.props
     const idToken = localStorage.getItem('userToken')
     if (idToken && !user) {

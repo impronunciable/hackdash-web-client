@@ -5,7 +5,7 @@ import DashboardHeader from 'components/DashboardHeader'
 function DashboardLayout ({ children, params }) {
   return (
     <div className='container'>
-      <DashboardHeader dashboard_id={params.dashboard_id} />
+      <DashboardHeader dashboard_slug={params.dashboard_slug} />
       <div className='view-container'>
         {children}
       </div>

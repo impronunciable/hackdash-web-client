@@ -9,7 +9,7 @@ import ProjectView from 'views/ProjectView'
 export default (
   <Route path='/' component={CoreLayout}>
     <IndexRoute component={HomeView} />
-    <Route path='dashboards/:dashboard_id' component={DashboardLayout}>
+    <Route path='dashboards/:dashboard_slug' component={DashboardLayout}>
       <IndexRoute component={DashboardView} />
       <Route path='projects/:project_id' component={ProjectView} />
     </Route>
