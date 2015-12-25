@@ -6,7 +6,7 @@ const cardClassName = 'col-xs-12 col-md-3'
 
 export default class ProjectCard extends Component {
   static propTypes = {
-    dashboard_slug: PropTypes.object.isRequired,
+    dashboard_slug: PropTypes.string.isRequired,
     project: PropTypes.object.isRequired
   }
 

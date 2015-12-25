@@ -14,10 +14,10 @@ export const RECEIVE_PROJECT = 'RECEIVE_PROJECT'
 const requestProject = createAction(REQUEST_PROJECT)
 const receiveProject = createAction(RECEIVE_PROJECT)
 
-function fetchProject (dashboardSlug, id) {
+function fetchProject (id) {
   return dispatch => {
-    dispatch(requestProject(dashboardSlug, id))
-    fetch(`${base_url}/dashboards/${dashboardSlug}/projects/${id}`)
+    dispatch(requestProject(id))
+    fetch(`${base_url}/projects/${id}`)
     .then(response => response.json())
     .then(json => dispatch(receiveProject(json)))
   }
