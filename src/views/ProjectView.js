@@ -19,6 +19,7 @@ class ProjectView extends Component {
     if (project) {
       return (
         <div className={styles['Project']}>
+          <a className={styles['Project__join']}>Ask to join</a>
           <img className={styles['Project__logo']} src={project.cover} />
           <h2 className={styles['Project__title']}>{project.title}</h2>
           <p className={styles['Project__description']}>{project.description}</p>

@@ -2,6 +2,8 @@
 @import '../variables/fonts';
 
 .Project {
+  position: relative;
+
   &__logo {
     display: block;
     margin: 0 auto;
@@ -30,5 +32,16 @@
     text-align: center;
     text-transform: none;
     margin-top: 50px;
+  }
+
+  &__join {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: $green;
+    font-size: $fsize-17;
+    color: $white;
+    padding: 6px 16px;
+    border-radius: 5px;
   }
 }
