@@ -24,7 +24,7 @@ class DashboardView extends Component {
         <div className='container text-center'>
           <h1>{dashboard.title}</h1>
           <hr />
-          {dashboard.projects.map(project => <ProjectCard dashboard_slug={dashboard.slug} project={project} />)}
+          {dashboard.projects.map(project => <ProjectCard dashboard_slug={dashboard.slug} project={project} key={project.id} />)}
         </div>
       )
     } else {

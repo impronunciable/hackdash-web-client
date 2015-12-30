@@ -6,7 +6,6 @@ export default class DashboardCreateForm extends Component {
   }
 
   render () {
-    const { onSubmit } = this.props
     return (
       <div>
         <input style={{marginRight: '10px'}} type='text' ref={input => this._input = input} />
