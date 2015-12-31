@@ -1,14 +1,16 @@
 import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
 import { actions as dashboardActions } from 'redux/modules/dashboard'
 import { actions as userActions } from '../redux/modules/user'
 import DashboardCreateForm from 'components/DashboardCreateForm'
+import DashboardCard from 'components/DashboardCard'
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    dashboards: state.dashboard.dashboards,
+    dashboardsById: state.dashboard.dashboardsById
   }
 }
 
@@ -20,30 +22,31 @@ class HomeView extends Component {
   static propTypes = {
     createDashboard: PropTypes.func.isRequired,
     user: PropTypes.object,
-    fetchProfile: PropTypes.func.isRequired
+    dashboards: PropTypes.array.isRequired,
+    dashboardsById: PropTypes.object.isRequired,
+    fetchProfile: PropTypes.func.isRequired,
+    fetchDashboards: PropTypes.func.isRequired
   }
 
   render () {
-    const { user } = this.props
+    const { user, dashboards, dashboardsById } = this.props
     return (
       <div className='container text-center'>
         <h1>HackDash</h1>
         <hr />
-        <ul>
-          { user ? <li><DashboardCreateForm onSubmit={this._onSubmit.bind(this)} /></li> : '' }
-          <li><Link to='/dashboards/chauasd'>Dashboard View</Link></li>
-          <li><Link to='/dashboards/chauasd/projects/'>Project View</Link></li>
-        </ul>
+        { user ? <DashboardCreateForm onSubmit={this._onSubmit.bind(this)} /> : '' }
+        { dashboards.map(d => <DashboardCard key={d} dashboard={dashboardsById[d]} />) }
       </div>
     )
   }
 
   componentWillMount () {
-    const { fetchProfile, user } = this.props
+    const { fetchProfile, fetchDashboards, user } = this.props
     const idToken = localStorage.getItem('userToken')
     if (idToken && !user) {
       fetchProfile(idToken)
     }
+    fetchDashboards()
   }
 
   _onSubmit (title) {

@@ -5,26 +5,28 @@ import { actions as dashboardActions } from 'redux/modules/dashboard'
 
 const mapStateToProps = (state) => ({
   user: state.user,
-  dashboard: state.dashboard
+  dashboards: state.dashboard.dashboardsById
 })
 
 class DashboardView extends Component {
   static propTypes = {
     user: PropTypes.object,
     dashboard: PropTypes.object,
+    dashboards: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
     fetchDashboard: PropTypes.func.isRequired
   }
 
   render () {
-    const { dashboard } = this.props
+    const { dashboards, params } = this.props
+    const dashboard = dashboards[params.dashboard_slug]
 
     if (dashboard) {
       return (
         <div className='container text-center'>
           <h1>{dashboard.title}</h1>
           <hr />
-          {dashboard.projects.map(project => <ProjectCard dashboard_slug={dashboard.slug} project={project} key={project.id} />)}
+          {dashboard.projects && dashboard.projects.map(project => <ProjectCard dashboard_slug={dashboard.slug} project={project} key={project.id} />)}
         </div>
       )
     } else {
