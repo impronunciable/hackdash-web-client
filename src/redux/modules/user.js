@@ -5,6 +5,9 @@ import { auth0_client_id, auth0_domain } from 'config'
 // Auth0-Lock initializer
 // ------------------------------------
 const lock = new Auth0LockPasswordless(auth0_client_id, auth0_domain)
+const authOptions = {
+  'authParams': { scope: 'openid first_name family_name email picture' }
+}
 
 // ------------------------------------
 // Constants
@@ -23,7 +26,7 @@ const requestProfile = createAction(REQUEST_PROFILE)
 function login () {
   return dispatch => {
     dispatch(requestLogin())
-    lock.emailcode((error, profile, idToken) => {
+    lock.emailcode(authOptions, (error, profile, idToken) => {
       dispatch(receiveLogin(error, profile, idToken))
       lock.close()
       try {
