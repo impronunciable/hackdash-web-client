@@ -49,7 +49,7 @@ function createDashboard (title, idToken) {
       headers: authHeader(idToken),
       body: JSON.stringify({slug: title})
     }
-    fetch(`${base_url}/dashboards`, config)
+    return fetch(`${base_url}/dashboards`, config)
     .then(response => response.json())
     .then(json => dispatch(receiveCreateDashboard(json)))
   }

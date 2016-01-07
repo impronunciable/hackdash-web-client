@@ -25,7 +25,8 @@ class HomeView extends Component {
     dashboards: PropTypes.array.isRequired,
     dashboardsById: PropTypes.object.isRequired,
     fetchProfile: PropTypes.func.isRequired,
-    fetchDashboards: PropTypes.func.isRequired
+    fetchDashboards: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired
   }
 
   render () {
@@ -50,8 +51,9 @@ class HomeView extends Component {
   }
 
   _onSubmit (title) {
-    const { createDashboard, user } = this.props
+    const { createDashboard, user, history } = this.props
     createDashboard(title, user.idToken)
+    .then(() => history.push(`/dashboards/${title}`))
   }
 }
 
