@@ -19,7 +19,8 @@ export default class DashboardNavbar extends Component {
       <ul className='nav navbar-nav navbar-right'>
         <li><Link to={`/dashboards/${dashboard_slug}`} activeClassName={ActiveStyle}>Dashboard</Link></li>
         <li><Link to={`/dashboards/${dashboard_slug}/about`} activeClassName={ActiveStyle}>About</Link></li>
-        { user ? <li><Link to='/users/{user.id}'>
+        { user ? <li><Link to={`/dashboards/${dashboard_slug}/projects/create`} activeClassName={ActiveStyle}>Create project</Link></li> : null }
+        { user ? <li><Link to='/users/me'>
           <img src={user.picture} alt={user.email} className={`img-circle ${AvatarStyle}`} /></Link></li> : null }
         { !user ? <li><a href='#' onClick={onLoginClick}>Login</a></li> : null }
       </ul>
