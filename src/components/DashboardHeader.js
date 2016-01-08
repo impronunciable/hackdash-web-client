@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import DashboardNavbar from 'components/DashboardNavbar'
 import { actions as userActions } from '../redux/modules/user'
-import styles from '../styles/components/_dashboard-header.scss'
+import styles from 'styles/components/_dashboard-header.scss'
 
 const mapStateToProps = (state) => ({
   user: state.user,
