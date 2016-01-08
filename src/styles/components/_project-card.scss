@@ -1,0 +1,38 @@
+@import 'base';
+
+.ProjectCard {
+
+  &__container {
+    margin-bottom: 30px;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__cover {
+    height: 250px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__desc {
+    background: $white;
+    max-height: 200px;
+    min-height: 150px;
+    overflow: scroll;
+    width: 100%;
+    color: $black;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+
+    h3 {
+      margin-top: 0;
+      padding-top: 15px;
+    }
+  }
+}
