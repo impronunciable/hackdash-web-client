@@ -3,6 +3,8 @@
 
 .Project {
   position: relative;
+  background-color: $white;
+  padding: 2rem;
 
   &__logo {
     display: block;
@@ -43,5 +45,18 @@
     color: $white;
     padding: 6px 16px;
     border-radius: 5px;
+  }
+
+  &__hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid $nf-black;
+
+    &--section {
+      width: 140px;
+    }
+    &--subsection {
+      width: 20px;
+    }
   }
 }
