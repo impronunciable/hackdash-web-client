@@ -17,9 +17,9 @@ export default class DashboardNavbar extends Component {
     const { user, dashboard_slug, onLoginClick } = this.props
     return (
       <ul className='nav navbar-nav navbar-right'>
-        <li><Link to={`/dashboards/${dashboard_slug}`} activeClassName={ActiveStyle}>Dashboard</Link></li>
-        <li><Link to={`/dashboards/${dashboard_slug}/about`} activeClassName={ActiveStyle}>About</Link></li>
-        { user ? <li><Link to={`/dashboards/${dashboard_slug}/projects/create`} activeClassName={ActiveStyle}>Create project</Link></li> : null }
+        <li><Link to={`/dashboards/${dashboard_slug}`} activeClassName={ActiveStyle} className={styles['DashboardHeader__link']}>Dashboard</Link></li>
+        <li><Link to={`/dashboards/${dashboard_slug}/about`} activeClassName={ActiveStyle} className={styles['DashboardHeader__link']}>About</Link></li>
+        { user ? <li><Link to={`/dashboards/${dashboard_slug}/projects/create`} activeClassName={ActiveStyle} className={styles['DashboardHeader__link']}>Create project</Link></li> : null }
         { user ? <li><Link to='/users/me'>
           <img src={user.picture} alt={user.email} className={`img-circle ${AvatarStyle}`} /></Link></li> : null }
         { !user ? <li><a href='#' onClick={onLoginClick}>Login</a></li> : null }

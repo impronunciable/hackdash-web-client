@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import DashboardNavbar from 'components/DashboardNavbar'
 import { actions as userActions } from '../redux/modules/user'
+import styles from '../styles/components/_dashboard-header.scss'
 
 const mapStateToProps = (state) => ({
   user: state.user,
@@ -20,10 +21,10 @@ class DashboardHeader extends Component {
   render () {
     const { user, dashboard_slug } = this.props
     return (
-      <nav className='navbar navbar-default'>
+      <nav className={styles['DashboardHeader__main']}>
         <div className='container-fluid'>
           <div className='navbar-header'>
-            <Link className='navbar-brand' to='/'>HackDash</Link>
+            <Link className={styles['DashboardHeader__logo']} to='/'>Hack<span className={styles['DashboardHeader__logo__slash']}> / </span>Dash</Link>
           </div>
           <DashboardNavbar
             user={user}

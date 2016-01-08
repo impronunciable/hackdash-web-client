@@ -1,6 +1,29 @@
+@import '../variables/colors';
+@import '../variables/fonts';
 
 .DashboardHeader {
+
+  &__main {
+    margin-top: 3rem;
+  }
+
+  &__logo {
+    font-family: $primary-font;
+    font-size: $fsize-25;
+    color: $white;
+
+    &__slash {
+      color: $green;
+    }
+  }
+
+  &__link {
+    font-family: $primary-font;
+    color: $white;
+  }
+
   &__active {
+    color: $green;
     text-decoration: underline;
   }
 
