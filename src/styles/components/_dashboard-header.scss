@@ -1,0 +1,11 @@
+
+.DashboardHeader {
+  &__active {
+    text-decoration: underline;
+  }
+
+  &__avatar {
+    width: 30px;
+    height: 30px;
+  }
+}

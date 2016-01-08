@@ -1,0 +1,37 @@
+/*
+* Fonts
+*/
+
+$font-size: 14; // Base size in px from bootstrap
+
+/**
+ * Returns the equivalent of PX in EMs.
+ */
+@function em($target, $context: $font-size) {
+	@return ($target / $context) * 1em;
+}
+
+
+$primary-font: 'Varela Round';
+$secondary-font:  'Oswald';
+
+$default-font-color: $blackB;
+$default-bg-color: $white;
+
+$fsize-10: em(10);
+$fsize-12: em(12);
+$fsize-14: em(14);
+$fsize-15: em(15);
+$fsize-17: em(17);
+$fsize-20: em(20);
+$fsize-22: em(22);
+$fsize-25: em(25);
+$fsize-32: em(32);
+$fsize-35: em(35);
+$fsize-40: em(40);
+$fsize-50: em(50);
+$fsize-65: em(65);
+$fsize-70: em(70);
+$fsize-80: em(80);
+$fsize-100: em(100);
+$fsize-130: em(130);
