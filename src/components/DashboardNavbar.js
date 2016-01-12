@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react'
-import { Link } from 'react-router'
+import { Link, IndexLink } from 'react-router'
 import styles from 'styles/components/_dashboard-header.scss'
 
 // Module constants
@@ -17,7 +17,7 @@ export default class DashboardNavbar extends Component {
     const { user, dashboard_slug, onLoginClick } = this.props
     return (
       <ul className='nav navbar-nav navbar-right'>
-        <li><Link to={`/dashboards/${dashboard_slug}`} activeClassName={ActiveStyle} className={styles['DashboardHeader__link']}>Dashboard</Link></li>
+        <li><IndexLink to={`/dashboards/${dashboard_slug}`} activeClassName={ActiveStyle} className={styles['DashboardHeader__link']}>Dashboard</IndexLink></li>
         <li><Link to={`/dashboards/${dashboard_slug}/about`} activeClassName={ActiveStyle} className={styles['DashboardHeader__link']}>About</Link></li>
         { user ? <li><Link to={`/dashboards/${dashboard_slug}/projects/create`} activeClassName={ActiveStyle} className={styles['DashboardHeader__link']}>Create project</Link></li> : null }
         { user ? <li><Link to='/users/me'>
