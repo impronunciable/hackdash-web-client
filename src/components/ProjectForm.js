@@ -6,7 +6,7 @@ export default class ProjectForm extends Component {
     description: PropTypes.string,
     link: PropTypes.string,
     onSubmit: PropTypes.func.isRequired
-  }
+  };
 
   constructor (props) {
     super(props)

@@ -1,0 +1,11 @@
+@import '../variables/colors';
+@import '../variables/fonts';
+
+.Profile {
+  &__email {
+    font-size: $fsize-15;
+  }
+  &__avatar {
+    width: 250px;
+  }
+}

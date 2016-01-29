@@ -12,7 +12,7 @@ class ProjectView extends Component {
     project: PropTypes.object,
     params: PropTypes.object.isRequired,
     fetchProject: PropTypes.func.isRequired
-  }
+  };
 
   render () {
     const { project } = this.props

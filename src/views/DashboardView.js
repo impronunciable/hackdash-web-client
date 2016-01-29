@@ -15,7 +15,7 @@ class DashboardView extends Component {
     dashboards: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
     fetchDashboard: PropTypes.func.isRequired
-  }
+  };
 
   render () {
     const { dashboards, params } = this.props

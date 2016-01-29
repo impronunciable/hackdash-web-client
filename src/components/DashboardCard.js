@@ -8,7 +8,7 @@ const cardClassName = `col-xs-12 col-md-3 ${styles['ProjectCard__container']}`
 export default class DashboardCard extends Component {
   static propTypes = {
     dashboard: PropTypes.object.isRequired
-  }
+  };
 
   render () {
     const { dashboard } = this.props

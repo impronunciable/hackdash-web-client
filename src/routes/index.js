@@ -7,6 +7,7 @@ import DashboardView from 'views/DashboardView'
 import ProjectView from 'views/ProjectView'
 import ProjectCreateView from 'views/ProjectCreateView'
 import DashboardAboutView from 'views/DashboardAboutView'
+import ProfileView from 'views/ProfileView'
 
 export default (
   <Route path='/' component={CoreLayout}>
@@ -16,6 +17,7 @@ export default (
       <Route path='about' component={DashboardAboutView} />
       <Route path='projects/create' component={ProjectCreateView} />
       <Route path='projects/:project_id' component={ProjectView} />
+      <Route path='/users/me' component={ProfileView}/>
     </Route>
   </Route>
 )

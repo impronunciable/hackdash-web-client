@@ -16,7 +16,7 @@ class DashboardHeader extends Component {
     fetchProfile: PropTypes.func.isRequired,
     user: PropTypes.object,
     dashboard_slug: PropTypes.string.isRequired
-  }
+  };
 
   render () {
     const { user, dashboard_slug } = this.props

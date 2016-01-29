@@ -9,7 +9,7 @@ export default class ProjectCard extends Component {
   static propTypes = {
     dashboard_slug: PropTypes.string.isRequired,
     project: PropTypes.object.isRequired
-  }
+  };
 
   render () {
     const { project, dashboard_slug } = this.props

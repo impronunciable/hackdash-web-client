@@ -27,7 +27,7 @@ class HomeView extends Component {
     fetchProfile: PropTypes.func.isRequired,
     fetchDashboards: PropTypes.func.isRequired,
     history: PropTypes.object.isRequired
-  }
+  };
 
   render () {
     const { user, dashboards, dashboardsById } = this.props

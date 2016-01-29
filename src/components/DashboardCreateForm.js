@@ -3,7 +3,7 @@ import React, { PropTypes, Component } from 'react'
 export default class DashboardCreateForm extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired
-  }
+  };
 
   render () {
     return (

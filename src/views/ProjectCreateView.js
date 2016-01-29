@@ -13,7 +13,7 @@ class ProjectCreateView extends Component {
     params: PropTypes.object.isRequired,
     createProject: PropTypes.func.isRequired,
     history: PropTypes.object.isRequired
-  }
+  };
 
   render () {
     return (

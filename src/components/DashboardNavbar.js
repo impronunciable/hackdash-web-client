@@ -11,7 +11,7 @@ export default class DashboardNavbar extends Component {
     user: PropTypes.object,
     onLoginClick: PropTypes.func.isRequired,
     dashboard_slug: PropTypes.string.isRequired
-  }
+  };
 
   render () {
     const { user, dashboard_slug, onLoginClick } = this.props
