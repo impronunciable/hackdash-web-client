@@ -1,3 +1,4 @@
+import Auth0LockPasswordless from 'auth0-lock-passwordless'
 import { createAction, handleActions } from 'redux-actions'
 import { auth0_client_id, auth0_domain } from 'config'
 
